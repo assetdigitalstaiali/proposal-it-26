@@ -9,20 +9,20 @@
     
     <style>
         :root {
-            /* STAI Theme Palette (Adjusted for Tech/Modern look) */
-            --bg-dark: #0f172a;       /* Dark Slate */
-            --bg-card: #1e293b;       /* Slate 800 */
-            --primary: #10b981;       /* Emerald 500 (Growth/Islamic Vibe) */
-            --accent: #3b82f6;        /* Blue 500 (Tech) */
-            --gold: #fbbf24;          /* Amber/Gold (Institution Vibe) */
-            --text-main: #f1f5f9;     /* Slate 100 */
-            --text-muted: #94a3b8;    /* Slate 400 */
-            --danger: #ef4444;        /* Red 500 */
+            / STAI Theme Palette (Adjusted for Tech/Modern look) /
+            --bg-dark: #0f172a;       / Dark Slate /
+            --bg-card: #1e293b;       / Slate 800 /
+            --primary: #10b981;       / Emerald 500 (Growth/Islamic Vibe) /
+            --accent: #3b82f6;        / Blue 500 (Tech) /
+            --gold: #fbbf24;          / Amber/Gold (Institution Vibe) /
+            --text-main: #f1f5f9;     / Slate 100 /
+            --text-muted: #94a3b8;    / Slate 400 /
+            --danger: #ef4444;        / Red 500 /
             --glass: rgba(30, 41, 59, 0.7);
             --border: rgba(255, 255, 255, 0.1);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+         { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
@@ -38,7 +38,7 @@
                 radial-gradient(circle at 85% 30%, rgba(59, 130, 246, 0.08) 0%, transparent 25%);
         }
 
-        /* --- UI Components --- */
+        / --- UI Components --- /
         .fullscreen-btn {
             position: absolute; top: 20px; right: 20px; z-index: 1000;
             background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border);
@@ -49,9 +49,9 @@
 
         .progress-bar { position: absolute; bottom: 0; left: 0; height: 4px; background: linear-gradient(90deg, var(--primary), var(--gold)); width: 0%; transition: width 0.5s ease; z-index: 100; }
 
-        /* --- Mobile Warning Overlay --- */
+        / --- Mobile Warning Overlay --- /
         .mobile-warning {
-            display: none; /* Hidden by default */
+            display: none; / Hidden by default /
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: var(--bg-dark); z-index: 9999;
             flex-direction: column; justify-content: center; align-items: center;
@@ -69,13 +69,13 @@
             100% { transform: rotate(0deg); }
         }
 
-        /* Show warning on small screens in portrait */
+        / Show warning on small screens in portrait /
         @media screen and (max-width: 768px) and (orientation: portrait) {
             .mobile-warning { display: flex; }
             .slide-container, .fullscreen-btn, .nav-controls, .progress-bar { display: none !important; }
         }
 
-        /* --- Slide Logic --- */
+        / --- Slide Logic --- /
         .slide-container {
             flex: 1; position: relative; width: 100%; height: 100%;
             perspective: 1000px;
@@ -94,7 +94,7 @@
             z-index: 10; pointer-events: all;
         }
 
-        /* --- Typography & Layout --- */
+        / --- Typography & Layout --- /
         h1 { 
             font-size: 3.5rem; font-weight: 700; letter-spacing: -1px; margin-bottom: 20px; text-align: center;
             background: linear-gradient(135deg, #fff 0%, #cbd5e1 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
@@ -113,7 +113,7 @@
         .highlight { color: var(--gold); font-weight: 600; }
         .green-text { color: var(--primary); font-weight: 600; }
 
-        /* --- Grid Layouts --- */
+        / --- Grid Layouts --- /
         .card-grid {
             display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px;
             width: 100%; max-width: 1000px;
@@ -135,14 +135,14 @@
         .card-title { font-weight: 700; font-size: 1.3rem; }
         .card-desc { font-size: 1rem; color: var(--text-muted); line-height: 1.6; }
 
-        /* Table */
+        / Table /
         .spec-container { width: 100%; max-width: 1100px; background: var(--bg-card); border-radius: 16px; border: 1px solid var(--border); overflow: hidden; }
         .spec-table { width: 100%; border-collapse: collapse; }
         .spec-table th { background: rgba(16, 185, 129, 0.1); color: var(--primary); padding: 18px; text-align: left; font-weight: 600; border-bottom: 2px solid var(--border); font-size: 1.1rem; }
         .spec-table td { padding: 18px; border-bottom: 1px solid var(--border); color: #cbd5e1; font-size: 1.05rem; line-height: 1.5; }
         .spec-table tr:hover { background: rgba(255,255,255,0.02); }
 
-        /* Roadmap Clean Timeline (Fixing the overlap) */
+        / Roadmap Clean Timeline (Fixing the overlap) /
         .roadmap-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -183,7 +183,7 @@
         .roadmap-step h3 { font-size: 1.1rem; margin-bottom: 10px; color: white; }
         .roadmap-step p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.5; }
 
-        /* Outline Layout (for SIMASET / Timeline) */
+        / Outline Layout (for SIMASET / Timeline) /
         .outline-container { display: flex; flex-direction: column; gap: 20px; width: 100%; max-width: 800px; }
         .outline-item {
             display: flex; align-items: center; gap: 20px; padding: 25px;
@@ -195,7 +195,7 @@
         .outline-text h3 { font-size: 1.3rem; margin-bottom: 5px; color: white; }
         .outline-text p { font-size: 1rem; color: var(--text-muted); line-height: 1.5; }
 
-        /* --- Controls --- */
+        / --- Controls --- /
         .nav-controls {
             position: absolute; bottom: 30px; right: 40px; display: flex; gap: 15px; z-index: 100;
         }
@@ -260,13 +260,13 @@
                     <div class="card-icon" style="background: rgba(59, 130, 246, 0.1); color: var(--accent);"><i class="fa-solid fa-file-signature"></i></div>
                     <div class="card-title">2. e-Surat</div>
                     <div class="card-desc">
-                        Penerapan persuratan digital berbasis tanda tangan elektronik untuk administrasi yang lebih resmi dan cepat.
+                        Penerapan persuratan digital berbasis tanda tangan elektronik untuk administrasi yang lebih resmi dan cepat. Dapat diakses di <a href="https://esurat.stai-ali.ac.id" target="_blank" style="color: var(--accent); text-decoration: none; font-weight: 600;">esurat.stai-ali.ac.id</a> untuk prototyping awal.
                     </div>
                 </div>
                 <!-- Project 3 -->
                 <div class="info-card">
                     <div class="card-icon" style="background: rgba(251, 191, 36, 0.1); color: var(--gold);"><i class="fa-solid fa-clipboard-user"></i></div>
-                    <div class="card-title">3. Absensi Musrif</div>
+                    <div class="card-title">3. Sistem Absensi Mahasiswa</div>
                     <div class="card-desc">
                         Penyelesaian kendala sistem absensi mahasiswa oleh para Musrif melalui program edukasi dan pembiasaan.
                     </div>
@@ -391,7 +391,7 @@
                 <div class="roadmap-step">
                     <div class="step-num">1</div>
                     <h3>Akses Sevima</h3>
-                    <p>Pendalaman alur Sevima saat ini. Membutuhkan hak akses admin tertinggi kampus untuk membedah *flow* akademik & kepegawaian secara utuh.</p>
+                    <p>Pendalaman alur Sevima saat ini. Membutuhkan hak akses admin tertinggi kampus untuk membedah flow akademik & kepegawaian secara utuh.</p>
                 </div>
                 
                 <div class="roadmap-step">
@@ -403,7 +403,7 @@
                 <div class="roadmap-step">
                     <div class="step-num">3</div>
                     <h3>Persiapan Data</h3>
-                    <p>Mengumpulkan data sampel aktual dari database mahasiswa, dosen, dan karyawan untuk dijadikan bahan *testing* sistem baru.</p>
+                    <p>Mengumpulkan data sampel aktual dari database mahasiswa, dosen, dan karyawan untuk dijadikan bahan testing sistem baru.</p>
                 </div>
 
                 <div class="roadmap-step">
@@ -424,7 +424,7 @@
                     <div style="font-size: 2rem; color: var(--accent); margin-bottom: 5px;"><i class="fa-solid fa-thumbs-up"></i> Kelebihan (Pros)</div>
                     <ul style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.8; margin-left: 20px; margin-top: 10px;">
                         <li><strong>Penghematan Biaya:</strong> Tidak perlu lagi membayar tagihan langganan paket Business pihak ketiga setiap tahunnya.</li>
-                        <li><strong style="color: white;">Custom Fleksibel:</strong> Fitur bisa dibentuk 100% sesuai kebutuhan spesifik STAI-Ali (misal untuk integrasi absensi POS, perhitungan poin mahasiswa untuk musyrif, dan lain-lain).</li>
+                        <li><strong style="color: white;">Custom Fleksibel:</strong> Fitur bisa disesuaikan sesuai kebutuhan spesifik STAI-Ali (misal untuk integrasi absensi POS, perhitungan poin mahasiswa untuk musyrif, dan lain-lain).</li>
                         <li><strong>Data Terpusat:</strong> Seluruh basis data (database) mutlak milik kita dan diamankan di server internal kampus.</li>
                     </ul>
                 </div>
@@ -433,9 +433,9 @@
                 <div class="info-card" style="border-color: rgba(239, 68, 68, 0.5);">
                     <div style="font-size: 2rem; color: var(--danger); margin-bottom: 5px;"><i class="fa-solid fa-thumbs-down"></i> Tantangan (Cons)</div>
                     <ul style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.8; margin-left: 20px; margin-top: 10px;">
-                        <li><strong>Waktu Development:</strong> Membangun sistem yang stabil dari nol membutuhkan kesabaran dan waktu berbulan-bulan.</li>
-                        <li><strong>Kesiapan SDM:</strong> Membutuhkan tim IT internal yang fokus untuk perbaikan bug dan pemeliharaan (*maintenance*).</li>
-                        <li><strong>Tanggung Jawab Security:</strong> Tanggung jawab penuh untuk melindungi server dari serangan peretas (*hacker*) beralih sepenuhnya ke tim IT internal.</li>
+                        <li><strong>Waktu Development:</strong> Membangun sistem SIAKAD secara mandiri dari nol membutuhkan kesabaran dan waktu yang tidak sebentar, mengingat kompleksitas fitur SIAKAD SEVIMA saat ini.</li>
+                        <li><strong>Kesiapan SDM:</strong> Membutuhkan tim IT internal yang fokus untuk pengembangan, testing, perbaikan bug dan pemeliharaan (maintenance).</li>
+                        <li><strong>Tanggung Jawab Security:</strong> Tanggung jawab penuh untuk melindungi server dari serangan peretas (hacker JUDOL) beralih sepenuhnya ke tim IT internal.</li>
                     </ul>
                 </div>
 
@@ -451,7 +451,7 @@
                     <div class="outline-icon" style="font-size: 1.5rem; width: 80px; font-weight: bold; color: white;">Bulan<br>1 - 2</div>
                     <div class="outline-text">
                         <h3 style="color: var(--primary);">Pembelajaran Sistem</h3>
-                        <p>Mendapatkan akses web Sevima, mempelajari seluruh menu, alur kerja (workflow) akademik yang dipakai, dan mendata fitur apa saja yang krusial untuk dipindahkan.</p>
+                        <p>Mendapatkan akses web Sevima, mempelajari seluruh menu, alur kerja (workflow) akademik yang dipakai, mendata fitur apa saja yang krusial dan relevan untuk dipindahkan, serta mengadakan survey kepada tenaga pendidik terkait fitur yang sering digunakan, perlu di improve.</p>
                     </div>
                 </div>
 
@@ -459,7 +459,7 @@
                     <div class="outline-icon" style="font-size: 1.5rem; width: 80px; font-weight: bold; color: white;">Bulan<br>3 - 4</div>
                     <div class="outline-text">
                         <h3 style="color: var(--accent);">Studi Banding & Keamanan</h3>
-                        <p>Kunjungan ke STDI Imam Syafi'i Jember dengan fokus pembahasan teknis pada arsitektur server, manajemen database, dan metode pencegahan celah keamanan (*Security hardening*).</p>
+                        <p>Kunjungan ke STDI Imam Syafi'i Jember dengan fokus pembahasan teknis pada arsitektur server, manajemen database, pemenuhan standarisasi dari dan metode pencegahan celah keamanan (Security hardening).</p>
                     </div>
                 </div>
 
@@ -467,14 +467,54 @@
                     <div class="outline-icon" style="font-size: 1.5rem; width: 80px; font-weight: bold; color: white;">Bulan<br>5 - 6</div>
                     <div class="outline-text">
                         <h3 style="color: var(--gold);">Data & Prototyping</h3>
-                        <p>Mengekspor sampel data *real* untuk pengujian. Memulai penulisan kode dasar untuk membuat *prototype* SIAKAD Mandiri versi awal yang bisa didemonstrasikan ke pimpinan.</p>
+                        <p>Mengekspor sampel data real untuk pengujian. Memulai penulisan kode dasar untuk membuat prototype SIAKAD Mandiri versi awal yang bisa didemonstrasikan ke pimpinan.</p>
                     </div>
                 </div>
 
             </div>
         </div>
 
-        <!-- SLIDE 9: Penutup -->
+        <!-- SLIDE 9: Roadmap Jangka Panjang (Maks 5 Tahun) -->
+        <div class="slide">
+            <h2 style="margin-bottom: 20px;">Roadmap Jangka Panjang (Maks 5 Tahun)</h2>
+            <p style="color: var(--text-muted); margin-bottom: 30px; font-size: 1.1rem; text-align: center; max-width: 900px;">
+                Siklus pengembangan SIAKAD ditargetkan dapat beroperasi mandiri sebelum masa kontrak 5 tahunan SIAKAD SEVIMA berakhir.
+            </p>
+
+            <div class="card-grid" style="align-items: stretch; max-width: 1100px;">
+                <!-- Tahun 1-2 -->
+                <div class="info-card" style="border-top: 4px solid var(--accent);">
+                    <div style="font-size: 2rem; color: var(--accent); margin-bottom: 10px;"><i class="fa-solid fa-code"></i></div>
+                    <div class="card-title" style="color: white;">Tahun 1 - 2: Fase Development</div>
+                    <div class="card-desc" style="font-size: 1.05rem;">
+                        <p>Alokasi waktu <strong>maksimal 2 tahun</strong> untuk fokus mengembangkan arsitektur <em>core system</em> secara komprehensif (mulai dari Pendaftaran, KRS, KHS, hingga Penjadwalan Dosen).</p>
+                    </div>
+                </div>
+
+                <!-- Tahun 3-5 -->
+                <div class="info-card" style="border-top: 4px solid var(--gold);">
+                    <div style="font-size: 2rem; color: var(--gold); margin-bottom: 10px;"><i class="fa-solid fa-rocket"></i></div>
+                    <div class="card-title" style="color: white;">Tahun 3 - 5: Testing & Fitur Custom</div>
+                    <div class="card-desc" style="font-size: 1.05rem;">
+                        <p style="margin-bottom: 10px;">Sisa waktu digunakan untuk <em>testing</em> kelayakan, perbaikan <em>bug</em>, dan penambahan fitur kustom sesuai operasional STAI-Ali:</p>
+                        <ul style="padding-left: 20px; color: var(--text-muted); line-height: 1.6;">
+                            <li>Integrasi dengan absensi perpustakaan.</li>
+                            <li>Absensi dauroh & keluar-masuk kampus di waktu perkuliahan.</li>
+                            <li>Sistem Poin Musyrif bagi mahasiswa yang melanggar disiplin kampus (contoh: tidak sholat jamaah di masjid).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tombol Link Larksuite -->
+            <div style="margin-top: 40px; text-align: center;">
+                <a href="https://gjpoa2gy9m6v.jp.larksuite.com/base/LodobDMyDayKU8sWAUrj7GSRprh?from=from_copylink" target="_blank" style="display: inline-flex; align-items: center; gap: 10px; padding: 12px 24px; background: rgba(59, 130, 246, 0.1); border: 1px solid var(--accent); color: var(--accent); text-decoration: none; border-radius: 8px; font-weight: bold; transition: 0.3s;" onmouseover="this.style.background='var(--accent)'; this.style.color='white';" onmouseout="this.style.background='rgba(59, 130, 246, 0.1)'; this.style.color='var(--accent)';">
+                    <i class="fa-solid fa-table-list"></i> Pantau Timeline/Progres SIAKAD (Larksuite)
+                </a>
+            </div>
+        </div>
+
+        <!-- SLIDE 10: Penutup -->
         <div class="slide">
             <div style="font-size: 4rem; margin-bottom: 20px; color: var(--gold);">
                 <i class="fa-solid fa-handshake"></i>
@@ -493,7 +533,7 @@
     </div>
 
     <!-- Navigation -->
-    <div class="slide-counter" id="slideCounter">1 / 9</div>
+    <div class="slide-counter" id="slideCounter">1 / 10</div>
     <div class="nav-controls">
         <button class="nav-btn" onclick="prevSlide()" title="Sebelumnya"><i class="fa-solid fa-chevron-left"></i></button>
         <button class="nav-btn" onclick="nextSlide()" title="Selanjutnya"><i class="fa-solid fa-chevron-right"></i></button>
@@ -512,7 +552,7 @@
                 slide.classList.remove('active');
                 if (index === currentSlide) slide.classList.add('active');
             });
-            const progress = ((currentSlide + 1) / slides.length) * 100;
+            const progress = ((currentSlide + 1) / slides.length)  100;
             progressBar.style.width = `${progress}%`;
             counter.innerText = `${currentSlide + 1} / ${slides.length}`;
         }
@@ -553,4 +593,3 @@
     </script>
 </body>
 </html>
-```
