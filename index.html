@@ -9,20 +9,19 @@
     
     <style>
         :root {
-            / STAI Theme Palette (Adjusted for Tech/Modern look) /
-            --bg-dark: #0f172a;       / Dark Slate /
-            --bg-card: #1e293b;       / Slate 800 /
-            --primary: #10b981;       / Emerald 500 (Growth/Islamic Vibe) /
-            --accent: #3b82f6;        / Blue 500 (Tech) /
-            --gold: #fbbf24;          / Amber/Gold (Institution Vibe) /
-            --text-main: #f1f5f9;     / Slate 100 /
-            --text-muted: #94a3b8;    / Slate 400 /
-            --danger: #ef4444;        / Red 500 /
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --primary: #10b981;
+            --accent: #3b82f6;
+            --gold: #fbbf24;
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --danger: #ef4444;
             --glass: rgba(30, 41, 59, 0.7);
             --border: rgba(255, 255, 255, 0.1);
         }
 
-         { margin: 0; padding: 0; box-sizing: border-box; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
@@ -38,28 +37,40 @@
                 radial-gradient(circle at 85% 30%, rgba(59, 130, 246, 0.08) 0%, transparent 25%);
         }
 
-        / --- UI Components --- /
         .fullscreen-btn {
             position: absolute; top: 20px; right: 20px; z-index: 1000;
             background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border);
             color: var(--text-muted); padding: 8px 12px; border-radius: 8px;
             cursor: pointer; transition: 0.3s; font-size: 0.85rem; display: flex; align-items: center; gap: 8px;
         }
-        .fullscreen-btn:hover { background: var(--primary); color: white; border-color: var(--primary); }
+        
+        .fullscreen-btn:hover { 
+            background: var(--primary); color: white; border-color: var(--primary); 
+        }
 
-        .progress-bar { position: absolute; bottom: 0; left: 0; height: 4px; background: linear-gradient(90deg, var(--primary), var(--gold)); width: 0%; transition: width 0.5s ease; z-index: 100; }
+        .progress-bar { 
+            position: absolute; bottom: 0; left: 0; height: 4px; background: linear-gradient(90deg, var(--primary), var(--gold)); width: 0%; transition: width 0.5s ease; z-index: 100; 
+        }
 
-        / --- Mobile Warning Overlay --- /
         .mobile-warning {
-            display: none; / Hidden by default /
+            display: none !important;
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: var(--bg-dark); z-index: 9999;
             flex-direction: column; justify-content: center; align-items: center;
             text-align: center; padding: 30px;
         }
-        .mobile-warning i { font-size: 3rem; color: var(--gold); margin-bottom: 20px; animation: rotatePhone 2s infinite; }
-        .mobile-warning h2 { font-size: 1.5rem; margin-bottom: 10px; }
-        .mobile-warning p { color: var(--text-muted); }
+        
+        .mobile-warning i { 
+            font-size: 3rem; color: var(--gold); margin-bottom: 20px; animation: rotatePhone 2s infinite; 
+        }
+        
+        .mobile-warning h2 { 
+            font-size: 1.5rem; margin-bottom: 10px; color: var(--text-main);
+        }
+        
+        .mobile-warning p { 
+            color: var(--text-muted); 
+        }
 
         @keyframes rotatePhone {
             0% { transform: rotate(0deg); }
@@ -69,13 +80,11 @@
             100% { transform: rotate(0deg); }
         }
 
-        / Show warning on small screens in portrait /
         @media screen and (max-width: 768px) and (orientation: portrait) {
-            .mobile-warning { display: flex; }
+            .mobile-warning { display: flex !important; }
             .slide-container, .fullscreen-btn, .nav-controls, .progress-bar { display: none !important; }
         }
 
-        / --- Slide Logic --- /
         .slide-container {
             flex: 1; position: relative; width: 100%; height: 100%;
             perspective: 1000px;
@@ -94,7 +103,6 @@
             z-index: 10; pointer-events: all;
         }
 
-        / --- Typography & Layout --- /
         h1 { 
             font-size: 3.5rem; font-weight: 700; letter-spacing: -1px; margin-bottom: 20px; text-align: center;
             background: linear-gradient(135deg, #fff 0%, #cbd5e1 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
@@ -105,6 +113,7 @@
             font-size: 2.2rem; margin-bottom: 40px; color: var(--text-main); position: relative; 
             display: inline-block; padding-bottom: 10px; text-align: center;
         }
+        
         h2::after {
             content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 80px; height: 4px; 
             background: var(--primary); border-radius: 2px;
@@ -113,7 +122,6 @@
         .highlight { color: var(--gold); font-weight: 600; }
         .green-text { color: var(--primary); font-weight: 600; }
 
-        / --- Grid Layouts --- /
         .card-grid {
             display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px;
             width: 100%; max-width: 1000px;
@@ -125,24 +133,26 @@
             transition: 0.3s; position: relative; overflow: hidden;
             backdrop-filter: blur(10px); display: flex; flex-direction: column; gap: 15px;
         }
-        .info-card:hover { transform: translateY(-5px); border-color: var(--primary); box-shadow: 0 10px 30px rgba(16, 185, 129, 0.15); }
+        
+        .info-card:hover { 
+            transform: translateY(-5px); border-color: var(--primary); box-shadow: 0 10px 30px rgba(16, 185, 129, 0.15); 
+        }
         
         .card-icon {
             width: 55px; height: 55px; background: rgba(16, 185, 129, 0.1); color: var(--primary);
             border-radius: 12px; display: flex; align-items: center; justify-content: center;
             font-size: 1.8rem;
         }
+        
         .card-title { font-weight: 700; font-size: 1.3rem; }
         .card-desc { font-size: 1rem; color: var(--text-muted); line-height: 1.6; }
 
-        / Table /
         .spec-container { width: 100%; max-width: 1100px; background: var(--bg-card); border-radius: 16px; border: 1px solid var(--border); overflow: hidden; }
         .spec-table { width: 100%; border-collapse: collapse; }
         .spec-table th { background: rgba(16, 185, 129, 0.1); color: var(--primary); padding: 18px; text-align: left; font-weight: 600; border-bottom: 2px solid var(--border); font-size: 1.1rem; }
         .spec-table td { padding: 18px; border-bottom: 1px solid var(--border); color: #cbd5e1; font-size: 1.05rem; line-height: 1.5; }
         .spec-table tr:hover { background: rgba(255,255,255,0.02); }
 
-        / Roadmap Clean Timeline (Fixing the overlap) /
         .roadmap-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -152,6 +162,7 @@
             align-items: stretch;
             margin-top: 20px;
         }
+        
         .roadmap-step {
             background: var(--bg-card);
             border: 1px solid var(--border);
@@ -162,6 +173,7 @@
             display: flex;
             flex-direction: column;
         }
+        
         .roadmap-step::before {
             content: '';
             position: absolute;
@@ -172,7 +184,9 @@
             background: var(--border);
             z-index: 0;
         }
+        
         .roadmap-step:last-child::before { display: none; }
+        
         .roadmap-step .step-num {
             width: 40px; height: 40px; border-radius: 50%;
             background: rgba(16, 185, 129, 0.1); color: var(--primary);
@@ -180,31 +194,37 @@
             font-weight: bold; font-size: 1.2rem; margin-bottom: 15px;
             border: 2px solid var(--primary);
         }
+        
         .roadmap-step h3 { font-size: 1.1rem; margin-bottom: 10px; color: white; }
         .roadmap-step p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.5; }
 
-        / Outline Layout (for SIMASET / Timeline) /
         .outline-container { display: flex; flex-direction: column; gap: 20px; width: 100%; max-width: 800px; }
+        
         .outline-item {
             display: flex; align-items: center; gap: 20px; padding: 25px;
             background: linear-gradient(90deg, rgba(255,255,255,0.03) 0%, transparent 100%);
             border-left: 4px solid var(--border); transition: 0.3s; border-radius: 0 12px 12px 0;
         }
-        .outline-item:hover { border-left-color: var(--gold); background: linear-gradient(90deg, rgba(251, 191, 36, 0.1) 0%, transparent 100%); transform: translateX(10px); }
+        
+        .outline-item:hover { 
+            border-left-color: var(--gold); background: linear-gradient(90deg, rgba(251, 191, 36, 0.1) 0%, transparent 100%); transform: translateX(10px); 
+        }
+        
         .outline-icon { font-size: 2rem; color: var(--primary); width: 50px; text-align: center; }
         .outline-text h3 { font-size: 1.3rem; margin-bottom: 5px; color: white; }
         .outline-text p { font-size: 1rem; color: var(--text-muted); line-height: 1.5; }
 
-        / --- Controls --- /
         .nav-controls {
             position: absolute; bottom: 30px; right: 40px; display: flex; gap: 15px; z-index: 100;
         }
+        
         .nav-btn {
             width: 50px; height: 50px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.1);
             background: rgba(255,255,255,0.05); color: white; cursor: pointer;
             display: flex; align-items: center; justify-content: center; transition: 0.3s;
             backdrop-filter: blur(5px);
         }
+        
         .nav-btn:hover { background: var(--primary); transform: scale(1.1); border-color: var(--primary); }
 
         .slide-counter { position: absolute; bottom: 45px; right: 170px; color: var(--text-muted); font-size: 1rem; font-weight: bold; font-family: 'JetBrains Mono', monospace;}
@@ -213,14 +233,12 @@
 </head>
 <body>
 
-    <!-- Mobile Warning Overlay -->
     <div class="mobile-warning">
         <i class="fa-solid fa-mobile-screen"></i>
         <h2>Putar Layar</h2>
         <p>Mohon gunakan mode Landscape (mendatar) untuk tampilan presentasi terbaik.</p>
     </div>
 
-    <!-- Fullscreen Toggle -->
     <button class="fullscreen-btn" id="fsBtn" onclick="toggleFullScreen()">
         <i class="fa-solid fa-expand"></i> Layar Penuh
     </button>
@@ -260,7 +278,8 @@
                     <div class="card-icon" style="background: rgba(59, 130, 246, 0.1); color: var(--accent);"><i class="fa-solid fa-file-signature"></i></div>
                     <div class="card-title">2. e-Surat</div>
                     <div class="card-desc">
-                        Penerapan persuratan digital berbasis tanda tangan elektronik untuk administrasi yang lebih resmi dan cepat. Dapat diakses di <a href="https://esurat.stai-ali.ac.id" target="_blank" style="color: var(--accent); text-decoration: none; font-weight: 600;">esurat.stai-ali.ac.id</a> untuk prototyping awal.
+                        Penerapan persuratan digital berbasis tanda tangan elektronik untuk administrasi yang lebih resmi dan cepat.<br><br>
+                        <a href="https://esurat.stai-ali.ac.id" target="_blank" style="color: var(--accent); text-decoration: none; font-weight: bold; border-bottom: 1px dashed var(--accent);">Akses: esurat.stai-ali.ac.id</a>
                     </div>
                 </div>
                 <!-- Project 3 -->
@@ -313,8 +332,14 @@
 
         <!-- SLIDE 4: e-Surat (Pros & Cons) -->
         <div class="slide">
-            <h2 style="margin-bottom: 20px;">2. Opsi Penerapan e-Surat</h2>
-            <p style="color: var(--text-muted); margin-bottom: 30px; font-size: 1.1rem; text-align: center;">Tanda tangan digital (TTD) menjamin legalitas lebih kuat & terlihat profesional dari sekadar cap basah/scan.</p>
+            <h2 style="margin-bottom: 15px;">2. Opsi Penerapan e-Surat</h2>
+            <p style="color: var(--text-muted); margin-bottom: 10px; font-size: 1.1rem; text-align: center;">Tanda tangan digital (TTD) menjamin legalitas lebih kuat & terlihat profesional dari sekadar cap basah/scan.</p>
+            
+            <div style="text-align: center; margin-bottom: 25px;">
+                <a href="https://esurat.stai-ali.ac.id" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: rgba(59, 130, 246, 0.1); border: 1px solid var(--accent); color: var(--accent); text-decoration: none; border-radius: 50px; font-weight: bold; transition: 0.3s;" onmouseover="this.style.background='var(--accent)'; this.style.color='white';" onmouseout="this.style.background='rgba(59, 130, 246, 0.1)'; this.style.color='var(--accent)';">
+                    <i class="fa-solid fa-link"></i> Prototype Web e-Surat: esurat.stai-ali.ac.id
+                </a>
+            </div>
             
             <div class="spec-container">
                 <table class="spec-table">
@@ -386,12 +411,11 @@
                 Sebagai langkah efisiensi jangka panjang, kita berencana membangun Sistem Informasi Akademik milik sendiri untuk menggantikan sistem berlangganan.
             </p>
 
-            <!-- Clean Non-overlapping Timeline -->
             <div class="roadmap-grid">
                 <div class="roadmap-step">
                     <div class="step-num">1</div>
                     <h3>Akses Sevima</h3>
-                    <p>Pendalaman alur Sevima saat ini. Membutuhkan hak akses admin tertinggi kampus untuk membedah flow akademik & kepegawaian secara utuh.</p>
+                    <p>Pendalaman alur Sevima saat ini. Membutuhkan hak akses admin tertinggi kampus untuk membedah workflow akademik & kepegawaian secara utuh.</p>
                 </div>
                 
                 <div class="roadmap-step">
@@ -458,8 +482,8 @@
                 <div class="outline-item">
                     <div class="outline-icon" style="font-size: 1.5rem; width: 80px; font-weight: bold; color: white;">Bulan<br>3 - 4</div>
                     <div class="outline-text">
-                        <h3 style="color: var(--accent);">Studi Banding & Keamanan</h3>
-                        <p>Kunjungan ke STDI Imam Syafi'i Jember dengan fokus pembahasan teknis pada arsitektur server, manajemen database, pemenuhan standarisasi dari dan metode pencegahan celah keamanan (Security hardening).</p>
+                        <h3 style="color: var(--accent);">Studi Banding Kolaboratif (2 Arah)</h3>
+                        <p>Kunjungan ke STDI Imam Syafi'i Jember secara dua arah. Kita akan <strong>membantu perbaikan celah keamanan</strong> website mereka, sekaligus belajar dari pengalaman panjang mereka mengelola SIAKAD Mandiri terkait kendala lapangan, kepatuhan regulasi Perguruan Tinggi, dan UU ITE.</p>
                     </div>
                 </div>
 
@@ -478,7 +502,7 @@
         <div class="slide">
             <h2 style="margin-bottom: 20px;">Roadmap Jangka Panjang (Maks 5 Tahun)</h2>
             <p style="color: var(--text-muted); margin-bottom: 30px; font-size: 1.1rem; text-align: center; max-width: 900px;">
-                Siklus pengembangan SIAKAD ditargetkan dapat beroperasi mandiri sebelum masa kontrak 5 tahunan SIAKAD SEVIMA berakhir.
+                Siklus pengembangan SIAKAD ditargetkan dapat beroperasi mandiri sebelum masa kontrak 5 tahunan sistem eksternal berakhir.
             </p>
 
             <div class="card-grid" style="align-items: stretch; max-width: 1100px;">
@@ -506,10 +530,9 @@
                 </div>
             </div>
 
-            <!-- Tombol Link Larksuite -->
             <div style="margin-top: 40px; text-align: center;">
                 <a href="https://gjpoa2gy9m6v.jp.larksuite.com/base/LodobDMyDayKU8sWAUrj7GSRprh?from=from_copylink" target="_blank" style="display: inline-flex; align-items: center; gap: 10px; padding: 12px 24px; background: rgba(59, 130, 246, 0.1); border: 1px solid var(--accent); color: var(--accent); text-decoration: none; border-radius: 8px; font-weight: bold; transition: 0.3s;" onmouseover="this.style.background='var(--accent)'; this.style.color='white';" onmouseout="this.style.background='rgba(59, 130, 246, 0.1)'; this.style.color='var(--accent)';">
-                    <i class="fa-solid fa-table-list"></i> Pantau Timeline/Progres SIAKAD (Larksuite)
+                    <i class="fa-solid fa-table-list"></i> Pantau Database Progress SIAKAD (Larksuite)
                 </a>
             </div>
         </div>
@@ -532,7 +555,6 @@
 
     </div>
 
-    <!-- Navigation -->
     <div class="slide-counter" id="slideCounter">1 / 10</div>
     <div class="nav-controls">
         <button class="nav-btn" onclick="prevSlide()" title="Sebelumnya"><i class="fa-solid fa-chevron-left"></i></button>
@@ -546,13 +568,12 @@
         const fsBtn = document.getElementById('fsBtn');
         const counter = document.getElementById('slideCounter');
 
-        // Init Slide
         function updateSlide() {
             slides.forEach((slide, index) => {
                 slide.classList.remove('active');
                 if (index === currentSlide) slide.classList.add('active');
             });
-            const progress = ((currentSlide + 1) / slides.length)  100;
+            const progress = ((currentSlide + 1) / slides.length) * 100;
             progressBar.style.width = `${progress}%`;
             counter.innerText = `${currentSlide + 1} / ${slides.length}`;
         }
@@ -565,7 +586,6 @@
             if (e.key === 'ArrowLeft') prevSlide();
         });
 
-        // --- FULLSCREEN LOGIC ---
         function toggleFullScreen() {
             if (!document.fullscreenElement) {
                 document.documentElement.requestFullscreen().catch(err => {
@@ -588,7 +608,6 @@
             }
         }
 
-        // Initialize First Slide
         updateSlide();
     </script>
 </body>
