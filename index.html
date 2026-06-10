@@ -132,7 +132,7 @@
 
         .highlight { color: var(--gold); font-weight: 600; }
         
-        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; width: 100%; max-width: 1000px; }
+        .card-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; width: 100%; max-width: 1000px; }
         .card-grid-small { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; width: 100%; max-width: 1100px; }
         
         .info-card {
@@ -237,9 +237,9 @@
                 <div style="background: rgba(251, 191, 36, 0.1); padding: 8px 20px; border-radius: 50px; margin-bottom: 25px; border: 1px solid rgba(251, 191, 36, 0.3);">
                     <span class="highlight" style="font-size: 0.9rem;"><i class="fa-solid fa-building-columns"></i> STAI Ali bin Abi Thalib Surabaya</span>
                 </div>
-                <h1>Pembaruan Tata<br>Kelola IT Kampus</h1>
-                <p style="font-size: clamp(1rem, 3vw, 1.3rem); color: var(--text-muted); text-align: center; max-width: 800px; margin-top: 15px;">
-                    "Merangkum 4 inisiatif utama divisi IT untuk meningkatkan efisiensi, keamanan, dan kemandirian administrasi kampus."
+                <h1>Usulan & Tindak Lanjut<br>Tata Kelola IT Kampus</h1>
+                <p style="font-size: clamp(1rem, 3vw, 1.3rem); color: var(--text-muted); text-align: center; max-width: 800px; margin-top: 15px; line-height: 1.6;">
+                    "Merangkum 4 bahasan termasuk inisiatif & tindak lanjut aplikasi dari divisi IT untuk meningkatkan efisiensi, keamanan, dan kemandirian administrasi kampus."
                 </p>
                 <div style="margin-top: 40px; font-size: 1rem; color: var(--text-muted);">
                     Disusun Oleh: <strong style="color: white;">Divisi IT</strong>
@@ -543,7 +543,7 @@
             <!-- SLIDE 9: SIAKAD Hardware Needs -->
             <div class="slide">
                 <h2 style="margin-bottom: 20px;">Kebutuhan Infrastruktur SIAKAD Mandiri</h2>
-                <p style="color: var(--text-muted); margin-bottom: 30px; font-size: 1rem; text-align: center; max-width: 800px;">
+                <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 1rem; text-align: center; max-width: 800px;">
                     Estimasi perangkat keras (Hardware) yang dibutuhkan untuk menjadi server lokal operasional SIAKAD secara utuh.
                 </p>
                 
@@ -567,6 +567,18 @@
                         </tbody>
                     </table>
                 </div>
+
+                <!-- Callout Note Box -->
+                <div style="margin-top: 25px; background: rgba(59, 130, 246, 0.05); border-left: 4px solid var(--accent); padding: 20px; text-align: left; max-width: 900px; border-radius: 0 12px 12px 0;">
+                    <h3 style="color: var(--accent); font-size: 1.1rem; margin-bottom: 10px;"><i class="fa-solid fa-circle-info"></i> Catatan Tahapan Pengadaan</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 10px;">
+                        Item <strong>Server Enterprise (1 Unit)</strong> & <strong>Rack Server 32U</strong> akan diajukan ke RAB 2028/2029 <em>jika</em> tahun awal sudah ada prototipe aplikasi SIAKAD yang beroperasi.
+                    </p>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
+                        Yang terpenting untuk tahapan development awal, testing, dan evaluasi, kita akan menggunakan <strong>Server/VPS existing</strong> saja dulu. Baru jika sistem sudah dinilai <em>proper</em>, SIAKAD mesti bermigrasi ke <em>server dedicated</em> (khusus) karena menyangkut lonjakan trafik user dan beban kerja (load) server.
+                    </p>
+                </div>
+
             </div>
 
             <!-- SLIDE 10: Penutup -->
@@ -619,7 +631,7 @@
             // Custom short titles for sidebar (optional, but cleaner)
             const shortTitles = [
                 "Judul Presentasi",
-                "4 Fokus Utama",
+                "4 Fokus Bahasan",
                 "1. Info SIMASET",
                 "1. Evaluasi SIMASET",
                 "2. Opsi e-Surat",
